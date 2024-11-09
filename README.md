@@ -5,7 +5,7 @@ Esta es una extensión de navegadores basados en Chromium que agrega funcionalid
 # Compatibilidad
 
 - [ ] Claude
-- [ ] ChatGPT
+- [X] ChatGPT
 - [ ] Perplexity
 - [ ] Gemini
 
