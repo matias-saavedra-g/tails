@@ -2,6 +2,24 @@
 
 Esta es una extensión de navegadores basados en Chromium que agrega funcionalidades adicionales a los populares chatbots de LLMs en línea, como serían [Claude](claude.ai), [ChatGPT](chat.com), [Perplexity](perplexity.ai), [Gemini](gemini.google.com), y todos los que vayan surgiendo y sean de interés.
 
+# Características
+
+## Interfaz de usuario compatible con modo oscuro
+
+Esta extensión es responsiva a la interfaz de modo oscuro, para que puedas seguir chateando con estilo.
+
+## Prompts personalizados
+
+Agrega tus propios prompts personalizados para que puedas reutilizarlos en tus conversaciones.
+
+## Cola de mensajes
+
+Guarda mensajes en una cola para enviarlos en el momento en que el modelo esté listo para recibirlos.
+
+## Sugerencia de prompt en el menú contextual
+
+Agrega un botón en el menú contextual para sugerir un prompt generalmente útil para todo tipo de conversaciones.
+
 # Compatibilidad
 
 - [ ] Claude
