@@ -1,0 +1,75 @@
+{
+    "manifest_version": 3,
+    "name": "TAILS: Tools for AI chromium Extension",
+    "version": "1.0",
+    "description": "A browser extension to add custom tools to various AI websites (ChatGPT, Claude, Gemini, etc.) for enhanced user interactions.",
+    "permissions": [
+      "storage",
+      "activeTab",
+      "contextMenus"
+    ],
+    "host_permissions": [
+      "https://chatgpt.com/*",
+      "https://claude.ai/*",
+      "https://gemini.google.com/*",
+      "https://perplexity.ai/*"
+    ],
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      }
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://chatgpt.com/*"],
+        "js": ["content-scripts/content_chatgpt.js",
+               "ui/ui.js"],
+        "css": ["ui/styles.css"]
+      },
+      {
+        "matches": ["https://claude.ai/*"],
+        "js": ["content-scripts/content_claude.js",
+               "ui/ui.js"],
+        "css": ["ui/styles.css"]
+      },
+      {
+        "matches": ["https://gemini.com/*"],
+        "js": ["content-scripts/content_gemini.js",
+               "ui/ui.js"],
+        "css": ["ui/styles.css"]
+      },
+      {
+          "matches": ["https://perplexity.ai/*"],
+          "js": ["content-scripts/content_perplexity.js",
+                 "ui/ui.js"],
+          "css": ["ui/styles.css"]
+      }
+    ],
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "icons/*",
+          "ui/ui.js",
+          "ui/styles.css"
+        ],
+        "matches": [
+          "https://chatgpt.com/*",
+          "https://claude.ai/*",
+          "https://gemini.google.com/*",
+          "https://perplexity.ai/*"
+        ]
+      }
+    ]
+  }
+  

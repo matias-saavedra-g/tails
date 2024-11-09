@@ -1,0 +1,325 @@
+/* styles.css */
+
+/* General styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Light mode styles */
+#ai-tools-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #f0f4f8;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+#ai-tools-icon:hover {
+    background-color: #d9e2ec;
+}
+
+#ai-tools-menu {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 420px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    padding: 15px;
+    overflow-y: auto;
+    z-index: 1001;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Base font sizes */
+:root {
+    --base-font-size: 14px;
+    --h1-font-size: 2em; /* 28px */
+    --h2-font-size: 1.75em; /* 24.5px */
+    --h3-font-size: 1.5em; /* 21px */
+    --h4-font-size: 1.25em; /* 17.5px */
+    --h5-font-size: 1.125em; /* 15.75px */
+    --h6-font-size: 1em; /* 14px */
+    --p-font-size: var(--base-font-size);
+}
+
+/* Heading and paragraph styling for elements with IDs starting with "ai-tools-" */
+[id^="ai-tools-"] h1, [id^="ai-tools-"] h2, [id^="ai-tools-"] h3, [id^="ai-tools-"] h4, [id^="ai-tools-"] h5, [id^="ai-tools-"] h6, [id^="ai-tools-"] p {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+[id^="ai-tools-"] h1 {
+    font-size: var(--h1-font-size);
+}
+
+[id^="ai-tools-"] h2 {
+    font-size: var(--h2-font-size);
+}
+
+[id^="ai-tools-"] h3 {
+    font-size: var(--h3-font-size);
+}
+
+[id^="ai-tools-"] h4 {
+    font-size: var(--h4-font-size);
+}
+
+[id^="ai-tools-"] h5 {
+    font-size: var(--h5-font-size);
+}
+
+[id^="ai-tools-"] h6 {
+    font-size: var(--h6-font-size);
+}
+
+[id^="ai-tools-"] p {
+    font-size: var(--p-font-size);
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* Prompt item styling */
+.prompt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 8px 0;
+    cursor: pointer;
+    background-color: #f7f9fc;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.prompt-item:hover {
+    background-color: #e2e8f0;
+}
+
+/* Button styling */
+.prompt-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3182ce;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.prompt-item button:hover {
+    background-color: #2b6cb0;
+}
+
+/* Add Prompt button styling */
+#add-prompt {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #3182ce;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#add-prompt:hover {
+    background-color: #2b6cb0;
+}
+
+/* Close button styling */
+#close-tools-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e53e3e;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#close-tools-menu:hover {
+    background-color: #c53030;
+}
+
+#minimize-tools-menu {
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    background-color: #f6ad55;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+#minimize-tools-menu:hover {
+    background-color: #ed8936;
+}
+
+/* Input and textarea styling */
+#new-prompt-name, #new-prompt {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f9fc;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+#new-prompt-name:focus, #new-prompt:focus {
+    outline: none;
+    border-color: #3182ce;
+}
+
+/* Prompt queue container styling */
+#prompt-queue-container {
+    position: fixed;
+    bottom: 11%;
+    right: 30%;
+    max-height: 11%;
+    max-width: 20%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* Prompt queue item styling */
+#prompt-queue-container div {
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #f0f4f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+
+    #ai-tools-icon {
+        background-color: #2d3748;
+    }
+
+    #ai-tools-icon:hover {
+        background-color: #4a5568;
+    }
+
+    #ai-tools-menu {
+        background-color: #1a202c;
+        border-color: #2d3748;
+    }
+
+    [id^="ai-tools-"] h1, [id^="ai-tools-"] h2, [id^="ai-tools-"] h3, [id^="ai-tools-"] h4, [id^="ai-tools-"] h5, [id^="ai-tools-"] h6 {
+        color: #e2e8f0;
+    }
+
+    [id^="ai-tools-"] p {
+        color: #cbd5e0;
+    }
+
+    .prompt-item {
+        border-color: #4a5568;
+        background-color: #2d3748;
+    }
+
+    .prompt-item:hover {
+        background-color: #4a5568;
+    }
+
+    .prompt-item button {
+        background-color: #4299e1;
+    }
+
+    .prompt-item button:hover {
+        background-color: #2b6cb0;
+    }
+
+    #add-prompt {
+        background-color: #4299e1;
+    }
+
+    #add-prompt:hover {
+        background-color: #2b6cb0;
+    }
+
+    #new-prompt-name, #new-prompt {
+        background-color: #2d3748;
+        border-color: #4a5568;
+        color: #e0e0e0;
+    }
+
+    #new-prompt-name:focus, #new-prompt:focus {
+        border-color: #4299e1;
+    }
+
+    #close-tools-menu {
+        background-color: #e53e3e;
+    }
+
+    #close-tools-menu:hover {
+        background-color: #c53030;
+    }
+
+    #minimize-tools-menu {
+        background-color: #f6ad55;
+    }
+
+    #minimize-tools-menu:hover {
+        background-color: #ed8936;
+    }
+
+    #prompt-queue-container {
+        background-color: #1a202c;
+        border-color: #2d3748;
+    }
+
+    #prompt-queue-container div {
+        background-color: #2d3748;
+        border-color: #4a5568;
+    }
+}

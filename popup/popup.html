@@ -1,0 +1,22 @@
+<!-- popup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAILS Extension Settings</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div id="popup-container">
+        <h2>TAILS Settings</h2>
+        <button id="show-icon">Show Tools Icon</button>
+        <h3>Stored Prompts</h3>
+        <div id="stored-prompts"></div>
+        <p id="no-prompts">No prompts found. Add some from the tools menu.</p>
+    </div>
+    <script src="ui/ui.js"></script>
+    <script src="content-scripts/content_chatgpt.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>

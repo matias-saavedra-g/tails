@@ -1,0 +1,90 @@
+/* popup.css */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f4f8;
+    color: #333;
+    width: 300px;
+    box-sizing: border-box;
+}
+
+#popup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #2c5282;
+}
+
+h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #2b6cb0;
+}
+
+button {
+    padding: 10px;
+    background-color: #3182ce;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    background-color: #2b6cb0;
+}
+
+#stored-prompts {
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.prompt-item {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #f7f9fc;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.prompt-item:hover {
+    background-color: #e2e8f0;
+}
+
+#no-prompts {
+    font-style: italic;
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Scrollbar styling */
+#stored-prompts::-webkit-scrollbar {
+    width: 8px;
+}
+
+#stored-prompts::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+}
+
+#stored-prompts::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa;
+}
