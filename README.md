@@ -10,7 +10,7 @@ Esta extensión es responsiva a la interfaz de modo oscuro, para que puedas segu
 
 ## Prompts personalizados
 
-Agrega tus propios prompts personalizados para que puedas reutilizarlos en tus conversaciones.
+Agrega tus propios prompts personalizados para que puedas reutilizarlos en tus conversaciones, que también puedes auto enviar.
 
 ## Cola de mensajes
 
