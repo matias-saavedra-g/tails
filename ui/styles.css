@@ -213,7 +213,7 @@ body {
 #prompt-queue-container {
     position: fixed;
     bottom: 11%;
-    right: 30%;
+    left: 25%;
     max-height: 11%;
     max-width: 20%;
     background-color: white;
@@ -232,6 +232,16 @@ body {
     background-color: #f0f4f8;
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+/* Styling for auto-send-checkbox */
+#auto-send-checkbox {
+    margin-right: 5px;
+}
+
+#auto-send-checkbox:checked {
+    background-color: #3182ce;
+    border-color: #3182ce;
 }
 
 /* Dark mode styles */
@@ -321,5 +331,17 @@ body {
     #prompt-queue-container div {
         background-color: #2d3748;
         border-color: #4a5568;
+    }
+
+    /* Dark mode styling for auto-send-checkbox */
+    #auto-send-checkbox {
+        background-color: #2d3748;
+        border-color: #4a5568;
+        color: #e0e0e0;
+    }
+
+    #auto-send-checkbox:checked {
+        background-color: #4299e1;
+        border-color: #4299e1;
     }
 }

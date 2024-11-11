@@ -99,64 +99,6 @@ function loadPromptsFromStorage() {
     });
 }
 
-// Function to create the custom icon element
-function createIcon() {
-    const icon = document.createElement('div');
-    const iconPath = chrome.runtime.getURL('icons/icon128.png');
-
-    icon.id = 'ai-tools-icon';
-    icon.innerHTML = `<img src="${iconPath}" alt="AI Tools Icon"/>`;
-
-    document.body.appendChild(icon);
-
-    icon.addEventListener('click', () => {
-        toggleUITools();
-    });
-}
-
-// Function to toggle the tools UI
-function toggleUITools() {
-    let toolsUI = document.getElementById('ai-tools-menu');
-
-    if (!toolsUI) {
-        toolsUI = document.createElement('div');
-        toolsUI.id = 'ai-tools-menu';
-
-        toolsUI.innerHTML = `
-            <div style="display: flex; align-items: center;">
-                <h4 style="margin: 0;">TAILS</h4>
-                <a href="https://github.com/matias-saavedra-g/tails" target="_blank" style="margin-left: 10px;">
-                    <img src="${chrome.runtime.getURL('icons/icon128.png')}" alt="TAILS icon" style="height: 1.1em;"/>
-                </a>
-            </div>
-            <p>Click on a prompt to paste it into the chat input.</p>
-            <button id="minimize-tools-menu">-</button>
-            <button id="close-tools-menu">×</button>
-            <input id="new-prompt-name" placeholder="Prompt Name" />
-            <textarea id="new-prompt" placeholder="Add a new prompt"></textarea>
-            <button id="add-prompt">Add Prompt</button>
-            <h5>Prompts</h5>
-            <div id="prompt-list"></div>
-        `;
-
-        document.body.appendChild(toolsUI);
-
-        document.getElementById('close-tools-menu').addEventListener('click', () => {
-            removeAllAIToolsElements();
-        });
-
-        document.getElementById('minimize-tools-menu').addEventListener('click', () => {
-            toolsUI.style.display = 'none';
-        });
-
-        document.getElementById('add-prompt').addEventListener('click', () => {
-            addNewPrompt();
-        });
-    }
-
-    toolsUI.style.display = toolsUI.style.display === 'none' ? 'block' : 'none';
-}
-
 // Function to paste a default prompt into the chat input
 function pasteDefaultPrompt() {
     const defaultPrompt = "Eres un INSERTAR_ROL. LO_QUE_SE_PIDE, de acuerdo con DETALLES_Y_CONTEXTO. Entrégame la información en FORMATO_DE_SALIDA."; // Define your default prompt here
@@ -164,6 +106,38 @@ function pasteDefaultPrompt() {
     if (chatInput) {
         chatInput.innerHTML = defaultPrompt;
         chatInput.parentElement.focus();
+    }
+}
+
+// Function to automatically paste prompts into the chat input
+async function autoPastePrompts() {
+    const autoSendCheckbox = document.getElementById('auto-send-checkbox');
+    const chatInput = document.querySelector("#prompt-textarea > p");
+    if (autoSendCheckbox.checked) {
+        const promptList = document.getElementById('prompt-list');
+        const prompts = promptList.querySelectorAll('.prompt');
+
+        prompts.forEach((prompt) => {
+            const promptText = prompt.querySelector('span').textContent;
+            pastePrompt(promptText);
+            const inputEvent = new Event('input', { bubbles: true });
+            chatInput.dispatchEvent(inputEvent);
+            chatInput.parentElement.focus();
+        });
+
+        if (chatInput && chatInput.textContent === '') {   
+            try {
+                const sendButton = await waitForSendButton();
+                sendButton.click();
+                console.log('Send button clicked successfully');
+            } catch (error) {
+                console.error('Error with send button:', error);
+            }
+    
+            displayQueue();
+        } else {
+            setTimeout(() => autoPastePrompts(), 1000);
+        }
     }
 }
 
@@ -268,24 +242,50 @@ async function processNextPrompt() {
 function displayQueue() {
     let queueContainer = document.getElementById('prompt-queue-container');
 
+    // Create the queue container if it doesn't exist
     if (!queueContainer) {
         queueContainer = document.createElement('div');
         queueContainer.id = 'prompt-queue-container';
         document.body.appendChild(queueContainer);
     }
 
+    // Clear the queue container
     queueContainer.innerHTML = '<h4>Prompt Queue</h4>';
 
+    // Remove the queue container if the queue is empty
     if (promptQueue.length === 0) {
         queueContainer.remove();
     }
 
+    // Add each prompt to the queue container
     promptQueue.forEach((prompt, index) => {
         const promptElement = document.createElement('div');
         promptElement.textContent = `${index + 1}. ${prompt}`;
         promptElement.className = 'queue-item';
         queueContainer.appendChild(promptElement);
     });
+
+    // Add a badge indicating the number of prompts in the queue at the top left corner of the queue container
+    let queueBadge = document.getElementById('prompt-queue-badge');
+    if (!queueBadge) {
+        queueBadge = document.createElement('span');
+        queueBadge.id = 'prompt-queue-badge';
+        queueContainer.appendChild(queueBadge);
+    }
+    queueBadge.textContent = promptQueue.length;
+
+    // Add a button to clear the queue
+    let clearButton = document.getElementById('clear-queue-button');
+    if (!clearButton) {
+        clearButton = document.createElement('button');
+        clearButton.id = 'clear-queue-button';
+        clearButton.textContent = 'Clear Queue';
+        clearButton.addEventListener('click', () => {
+            promptQueue = [];
+            displayQueue();
+        });
+        queueContainer.appendChild(clearButton);
+    }
 }
 
 // --------------------------------- Event Listeners ---------------------------------

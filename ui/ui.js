@@ -38,6 +38,10 @@ function toggleUITools() {
             <input id="new-prompt-name" placeholder="Prompt Name" />
             <textarea id="new-prompt" placeholder="Add a new prompt"></textarea>
             <button id="add-prompt">Add Prompt</button>
+            <label style="display: flex; align-items: center; margin-top: 10px;">
+                <input type="checkbox" id="auto-send-checkbox" style="margin-right: 5px;">
+                Auto Send
+            </label>
             <h5>Prompts</h5>
             <div id="prompt-list"></div>
         `;
@@ -54,6 +58,12 @@ function toggleUITools() {
 
         document.getElementById('add-prompt').addEventListener('click', () => {
             addNewPrompt();
+        });
+
+        document.getElementById('auto-send-checkbox').addEventListener('change', (event) => {
+            if (event.target.checked) {
+                autoPastePrompts();
+            }
         });
     }
 
@@ -100,4 +110,6 @@ function removeAllAIToolsElements() {
 window.addEventListener('load', () => {
     createIcon();
     toggleUITools();
+    let toolsUI = document.getElementById('ai-tools-menu');
+    toolsUI.style.display = 'none';
 });
