@@ -1,6 +1,21 @@
-# Tails: Tools for AIs
+# Tails: Tools for AIs <!-- omit in toc -->
+
+[spanish](README.md) | [english](README.en.md)
 
 Esta es una extensión de navegadores basados en Chromium que agrega funcionalidades adicionales a los populares chatbots de LLMs en línea, como serían [Claude](claude.ai), [ChatGPT](chat.com), [Perplexity](perplexity.ai), [Gemini](gemini.google.com), y todos los que vayan surgiendo y sean de interés.
+
+# Índice <!-- omit in toc -->
+
+- [Características](#características)
+  - [Interfaz de usuario compatible con modo oscuro](#interfaz-de-usuario-compatible-con-modo-oscuro)
+  - [Prompts personalizados](#prompts-personalizados)
+  - [Cola de mensajes](#cola-de-mensajes)
+  - [Sugerencia de prompt en el menú contextual](#sugerencia-de-prompt-en-el-menú-contextual)
+- [Compatibilidad](#compatibilidad)
+- [Instalación](#instalación)
+  - [Chrome](#chrome)
+  - [Opera](#opera)
+  - [Microsoft Edge](#microsoft-edge)
 
 # Características
 
@@ -12,17 +27,23 @@ Esta extensión es responsiva a la interfaz de modo oscuro, para que puedas segu
 
 Agrega tus propios prompts personalizados para que puedas reutilizarlos en tus conversaciones, que también puedes auto enviar.
 
+![UI Screenshot](assets/ui.png)
+
 ## Cola de mensajes
 
 Guarda mensajes en una cola para enviarlos en el momento en que el modelo esté listo para recibirlos.
+
+![Queue Screenshot](assets/queue.png)
 
 ## Sugerencia de prompt en el menú contextual
 
 Agrega un botón en el menú contextual para sugerir un prompt generalmente útil para todo tipo de conversaciones.
 
+![Context Menu Screenshot](assets/context-menu.png)
+
 # Compatibilidad
 
-- [ ] Claude
+- [X] Claude
 - [X] ChatGPT
 - [ ] Perplexity
 - [ ] Gemini

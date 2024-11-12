@@ -36,7 +36,7 @@
         "css": ["ui/styles.css"]
       },
       {
-        "matches": ["https://gemini.com/*"],
+        "matches": ["https://gemini.google.com/*"],
         "js": ["content-scripts/content_gemini.js",
                "ui/ui.js"],
         "css": ["ui/styles.css"]

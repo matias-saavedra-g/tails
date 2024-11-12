@@ -6,7 +6,7 @@
 function createIcon() {
     const icon = document.createElement('div');
     const iconPath = chrome.runtime.getURL('icons/icon128.png');
-
+    
     icon.id = 'ai-tools-icon';
     icon.innerHTML = `<img src="${iconPath}" alt="AI Tools Icon"/>`;
 
@@ -15,6 +15,17 @@ function createIcon() {
     icon.addEventListener('click', () => {
         toggleUITools();
     });
+}
+
+// Function to change the icon to its dark version
+function changeIconToDark() {
+    // Checks if the prefer color scheme is dark
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        const icon = document.getElementById('ai-tools-icon');
+        const iconPath = chrome.runtime.getURL('icons/icon128-dark.png');
+
+        icon.innerHTML = `<img src="${iconPath}" alt="AI Tools Icon"/>`;
+    }
 }
 
 // Function to toggle the tools UI
@@ -112,4 +123,5 @@ window.addEventListener('load', () => {
     toggleUITools();
     let toolsUI = document.getElementById('ai-tools-menu');
     toolsUI.style.display = 'none';
+    changeIconToDark();
 });
