@@ -61,9 +61,9 @@ Add a button in the context menu to suggest a generally useful prompt for all ki
 
 2. Open Chrome and navigate to `chrome://extensions/`.
 
-3. Click on "Load unpacked", then select the cloned extension folder (U-Cursedn't).
+3. Enable developer mode (Developer Mode) in the upper right corner of the page.
 
-4. The extension should load and appear in the list of installed extensions.
+4. Click on "Load unpacked", then select the cloned extension folder (U-Cursedn't).
 
 5. The extension should load and appear in the list of installed extensions.
 

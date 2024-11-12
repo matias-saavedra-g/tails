@@ -63,7 +63,7 @@ Agrega un botón en el menú contextual para sugerir un prompt generalmente úti
 
 3. Habilitar el modo desarrollador (Developer Mode) en la esquina superior derecha de la página.
 
-4. Click en "Load unpacked" (Cargar extensión sin empaquetar), luego seleccionar la carpeta clonada de la extensión (U-Cursedn't).
+4. Click en "Load unpacked" (Cargar extensión sin empaquetar), luego seleccionar la carpeta clonada de la extensión.
 
 5. La extensión debería cargarse y aparecer en la lista de extensiones instaladas.
 
@@ -78,7 +78,7 @@ Agrega un botón en el menú contextual para sugerir un prompt generalmente úti
 
 2. Abrir Opera y visitar `opera://extensions/`.
 
-3. Click en "Load unpacked" (Cargar extensión sin empaquetar), luego seleccionar la carpeta clonada de la extensión (U-Cursedn't).
+3. Click en "Load unpacked" (Cargar extensión sin empaquetar), luego seleccionar la carpeta clonada de la extensión.
 
 4. La extensión debería cargarse y aparecer en la lista de extensiones instaladas.
 
@@ -95,6 +95,6 @@ Agrega un botón en el menú contextual para sugerir un prompt generalmente úti
 
 3. Habilitar el modo desarrollador (Developer Mode) en la esquina inferior izquierda de la página.
 
-4. Click en "Load unpacked" (Cargar extensión sin empaquetar), luego seleccionar la carpeta clonada de la extensión (U-Cursedn't).
+4. Click en "Load unpacked" (Cargar extensión sin empaquetar), luego seleccionar la carpeta clonada de la extensión.
 
 5. La extensión debería cargarse y aparecer en la lista de extensiones instaladas.
